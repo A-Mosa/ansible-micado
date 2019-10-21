@@ -74,6 +74,9 @@
     - web_listening_port: 443
     - web_session_timeout: 600
 
+    - install_rook: True
+    - install_etcd_galera: True
+
     - master_hostname: micado-master
     - worker_hostname: micado-worker
 
