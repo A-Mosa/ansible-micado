@@ -91,16 +91,3 @@
 - name: 'Kubernetes: Set default namespace'
   shell: kubectl config set-context --current --namespace=default
 
-- name: 'Kubernetes: Installing Rook Cluster'
-  shell: |
-    sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/operator.yaml
-    sudo kubectl wait --for condition=available --timeout=120s deployments.app/rook-operator -n rook-system
-    sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/cluster.yaml
-    sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/tools.yaml
-    sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/storageclass-block.yaml
-  when: install_rook
-
-- name: 'Kubernetes: Installing etcd for Galera Cluster'
-  shell: sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/galera-docker-mariadb/master/example-kubernetes/etcd-cluster.yml
-  when: install_etcd_galera
-

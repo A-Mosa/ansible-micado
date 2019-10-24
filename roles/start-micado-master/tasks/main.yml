@@ -9,3 +9,5 @@
 
 - include: docker-login.yml
   when: docker_cred_path is defined
+
+- include: rook-etcd.yml
