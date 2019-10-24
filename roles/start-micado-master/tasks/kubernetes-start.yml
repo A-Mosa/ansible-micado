@@ -94,7 +94,7 @@
 - name: 'Kubernetes: Installing Rook Cluster'
   shell: |
     sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/operator.yaml
-    sudo kubectl wait --for condition=available --timeout=80s deployments.app/rook-operator -n rook-system
+    sudo kubectl wait --for condition=available --timeout=120s deployments.app/rook-operator -n rook-system
     sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/cluster.yaml
     sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/tools.yaml
     sudo kubectl create -f https://raw.githubusercontent.com/A-Mosa/MiCADO-ADTs/master/RookCluster/storageclass-block.yaml
